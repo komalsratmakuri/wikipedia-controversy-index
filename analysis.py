@@ -73,6 +73,11 @@ summary['controversy_score'] = (summary['revert_rate'] * summary['editor_diversi
 print("\n--- CONTROVERSY INDEX SUMMARY ---")
 print(summary[['page_title', 'total_edits', 'unique_editors', 'total_reverts', 'controversy_score']])
 
+# Save summary dataset to a CSV file
+os.makedirs('data', exist_ok=True)
+summary.to_csv('data/controversy_summary.csv', index=False)
+print("Data exported successfully to 'data/controversy_summary.csv'")
+
 os.makedirs('assets', exist_ok=True)
 plt.figure(figsize=(9, 5))
 sns.set_theme(style="whitegrid")
